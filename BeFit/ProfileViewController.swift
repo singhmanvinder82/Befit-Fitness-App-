@@ -10,7 +10,10 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+
+ let defaults = UserDefaults.standard
+
+class ProfileViewController: UIViewController,UITextFieldDelegate{
     
     
    
@@ -21,6 +24,20 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        self.email.delegate = self
+        self.passwordTxt.delegate = self
+        
+//        if defaults.object(forKey: "name") != nil
+//        {
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//            
+//            let vc = storyBoard.instantiateViewController(withIdentifier: "home") as! ViewController
+//            self.present(vc, animated:true, completion:nil)
+//        }
+//        else{
+//            print("go")
+//        }
+
         
     }
     
@@ -30,7 +47,15 @@ class ProfileViewController: UIViewController {
         email.resignFirstResponder()
        
     }
-
+//    func textFieldShouldReturn(userText: UITextField!) -> Bool {
+//       self.view.endEditing(true);
+//        
+//        return false;
+//    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.endEditing(false)
+    }
+    
     @IBAction func register(_ sender: AnyObject)
     {
         Auth.auth().createUser(withEmail:self.email.text!, password: self.passwordTxt.text!) { (user, error) in
@@ -65,7 +90,13 @@ class ProfileViewController: UIViewController {
                 
                 //Print into the console if successfully logged in
                 print("You have successfully logged in")
-                
+//                if defaults.object(forKey: "name") == nil
+//                {
+//                defaults.set(self.email.text, forKey: "name")
+//                    print("\name")
+//                defaults.synchronize()
+//                }
+//
                 //Go to the HomeViewController if the login is sucessful
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 

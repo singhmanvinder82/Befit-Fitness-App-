@@ -1,10 +1,4 @@
-//
-//  connection.swift
-//  LetsPooL
-//
-//  Created by Harpreet on 19/09/17.
-//  Copyright © 2017 Harpreet. All rights reserved.
-//
+
 
 import Foundation
 import SystemConfiguration

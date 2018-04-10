@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     
@@ -21,7 +22,11 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
     {
         super.viewDidLoad()
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = wkTable.indexPathForSelectedRow {
+            wkTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -127,12 +132,38 @@ class WorkoutViewController: UIViewController, UITableViewDelegate, UITableViewD
         return 130
         
     }
+    
+
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+       let myIndex = indexPath.row
+        if myIndex == 0
+        {
+            performSegue(withIdentifier:"fullbody", sender: self)
+        }
+       else if myIndex == 1
+        {
+            performSegue(withIdentifier:"arm", sender: self)
+        }
+       else if myIndex == 2
+        {
+            performSegue(withIdentifier:"butt", sender: self)
+        }
+       else if myIndex == 3
+        {
+            performSegue(withIdentifier:"abs", sender: self)
+        }
+       else if myIndex == 4
+        {
+            performSegue(withIdentifier:"legs", sender: self)
+        }
         
         
     }
-
+    
    
+    
    /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

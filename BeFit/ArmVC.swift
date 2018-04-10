@@ -22,6 +22,11 @@ class ArmVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = armTable.indexPathForSelectedRow {
+            armTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,6 +50,7 @@ class ArmVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         
         cell.aLbl.text = self.tableData[(indexPath as NSIndexPath).row]
+        cell.aLbl.adjustsFontSizeToFitWidth = true
         cell.aImg.image = UIImage(named: self.arrImageName[(indexPath as NSIndexPath).row])
         
         
@@ -53,6 +59,12 @@ class ArmVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+      
+            performSegue(withIdentifier:"armSeque", sender: self)
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "armSeque"{

@@ -21,6 +21,11 @@ class ButtVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
       
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = buttTable.indexPathForSelectedRow {
+            buttTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
      func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -38,14 +43,19 @@ class ButtVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         cell.bLbl.text = self.tableData[(indexPath as NSIndexPath).row]
+        cell.bLbl.adjustsFontSizeToFitWidth = true
         cell.bImg.image = UIImage(named: self.arrImageName[(indexPath as NSIndexPath).row])
         
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "buttSegue", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "buttSeque"{
+        if segue.identifier == "buttSegue"{
             let detailViewController = segue.destination as! ButtVideo
             let myindexPath = self.buttTable.indexPathForSelectedRow
             let row = myindexPath?.row

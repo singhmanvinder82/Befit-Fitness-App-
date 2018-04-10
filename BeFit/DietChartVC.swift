@@ -24,7 +24,11 @@ class DietChartVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             // self.navigationItem.rightBarButtonItem = self.editButtonItem
         }
         
-        
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = dietTable.indexPathForSelectedRow {
+            dietTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
         func numberOfSections(in tableView: UITableView) -> Int
         {
             return 1
@@ -45,12 +49,15 @@ class DietChartVC: UIViewController, UITableViewDataSource, UITableViewDelegate 
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.cornerRadius = 20
             cell.textLabel?.highlightedTextColor = UIColor.cyan
-            cell.textLabel?.sizeToFit()
+            //cell.textLabel?.sizeToFit()
+            cell.textLabel?.adjustsFontSizeToFitWidth = true
             cell.textLabel?.textAlignment = .center
             
             return cell
         }
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToActual", sender: self)
+    }
         override func prepare(for segue: UIStoryboardSegue, sender: Any?)
         {
             if segue.identifier == "goToActual"

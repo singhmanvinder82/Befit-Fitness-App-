@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class forgetpasswordViewController: UIViewController {
+class forgetpasswordViewController: UIViewController ,UITextFieldDelegate{
     
     @IBOutlet weak var forgettext: UITextField!
     
@@ -34,6 +34,7 @@ class forgetpasswordViewController: UIViewController {
         let color = UIColor.white
         continuebtn.layer.borderColor = color.cgColor
         continuebtn.layer.borderWidth = 1
+         self.forgettext.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -42,7 +43,16 @@ class forgetpasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        forgettext.resignFirstResponder()
+        
+        
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.endEditing(false)
+    }
+
     @IBAction func continuebtn(_ sender: Any) {
    
      if forgettext.text == ""

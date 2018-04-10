@@ -25,6 +25,11 @@ class ActualDietVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = myTable.indexPathForSelectedRow {
+            myTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
      func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -46,8 +51,11 @@ class ActualDietVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "breakfast") as! ActualDietViewCell
             
             cell.lbl.text = "BREAKFAST"
+             cell.lbl.adjustsFontSizeToFitWidth = true
             
             cell.breakfastPlan.text = self.str
+           cell.breakfastPlan.adjustsFontForContentSizeCategory = true
+          
             
             
             
@@ -58,8 +66,9 @@ class ActualDietVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             let cell1 = tableView.dequeueReusableCell(withIdentifier: "lunch") as! ActualDietViewCell
             
             cell1.lbl.text = "LUNCH"
-            
+             cell1.lbl.adjustsFontSizeToFitWidth = true
             cell1.breakfastPlan.text = self.str1
+             cell1.breakfastPlan.adjustsFontForContentSizeCategory = true
             
             
             return cell1
@@ -72,9 +81,9 @@ class ActualDietVC: UIViewController, UITableViewDataSource, UITableViewDelegate
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "evening") as! ActualDietViewCell
             
             cell2.lbl.text = "EVENING"
-            
+             cell2.lbl.adjustsFontSizeToFitWidth = true
             cell2.breakfastPlan.text = self.str2
-            cell2.breakfastPlan.textAlignment = .center
+            cell2.breakfastPlan.adjustsFontForContentSizeCategory = true
             
             
             

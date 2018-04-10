@@ -23,6 +23,11 @@ class badHabitsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         images4 = ["stress.jpg","overweight.jpg","relax2.jpg","dietPill.jpg"]
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = table4.indexPathForSelectedRow {
+            table4.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -40,6 +45,7 @@ class badHabitsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.descLbl?.text = txt4[indexPath.row]
         cell.descLbl?.textColor = UIColor.white
         cell.imageViewq?.image = image2
+          cell.descLbl.adjustsFontSizeToFitWidth = true
         
         return cell
     }

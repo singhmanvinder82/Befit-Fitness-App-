@@ -21,6 +21,11 @@ class AbsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = absTable.indexPathForSelectedRow {
+            absTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
      func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
@@ -37,14 +42,18 @@ class AbsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
         
         cell.abLbl.text = self.tableData[(indexPath as NSIndexPath).row]
+        cell.abLbl.adjustsFontSizeToFitWidth = true
         cell.abImg.image = UIImage(named: self.arrImageName[(indexPath as NSIndexPath).row])
         
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "absSegue", sender: self)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "absSeque"{
+        if segue.identifier == "absSegue"{
             let detailViewController = segue.destination as! AbsVideo
             let myindexPath = self.absTable.indexPathForSelectedRow
             let row = myindexPath?.row

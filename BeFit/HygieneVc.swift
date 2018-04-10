@@ -26,7 +26,11 @@ class HygieneVc: UIViewController, UITableViewDataSource, UITableViewDelegate
     images2 = ["bath.jpg","brush.jpg","cleanFeet.jpg","clothes.jpg", "nails.jpg", "hands.jpg", "sleep.jpg"]
     
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = table2.indexPathForSelectedRow {
+            table2.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -44,6 +48,7 @@ class HygieneVc: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.descLbl?.text = txt2[indexPath.row]
         cell.descLbl?.textColor = UIColor.white
         cell.imageViewq?.image = image2
+          cell.descLbl.adjustsFontSizeToFitWidth = true
         
         return cell
     }

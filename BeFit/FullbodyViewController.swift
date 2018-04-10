@@ -23,7 +23,11 @@ class FullbodyViewController: UIViewController, UITableViewDelegate, UITableView
 
         
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = fullbodyTable.indexPathForSelectedRow {
+            fullbodyTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,6 +50,7 @@ class FullbodyViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         cell.Lbl.text = self.tableData[(indexPath as NSIndexPath).row]
+        cell.Lbl.adjustsFontSizeToFitWidth = true
         cell.Img1.image = UIImage(named: self.arrImageName[(indexPath as NSIndexPath).row])
         
         
@@ -53,7 +58,185 @@ class FullbodyViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let myIndex = indexPath.row
+        if myIndex == 0
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 1
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 2
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 3
+        {
+           performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 4
+        {
+           performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 5
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 6
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 7
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 8
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 9
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 10
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 11
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 12
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 13
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 14
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 15
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 16
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 17
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 18
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 19
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 20
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 21
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 22
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 23
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 24
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 25
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 26
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 27
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 28
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 29
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 30
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 31
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 32
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 33
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 34
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        if myIndex == 35
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 36
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 37
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 38
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 39
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 40
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 41
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 42
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+        else if myIndex == 43
+        {
+            performSegue(withIdentifier:"fullbodySeque", sender: self)
+        }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

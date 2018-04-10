@@ -23,6 +23,11 @@ class healthyFoodVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
       images3 = ["fatfree.jpg","lowcarb.jpg","sugar.jpg","vitamins.jpg"]
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = table3.indexPathForSelectedRow {
+            table3.deselectRow(at: selectedRow, animated: true)
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -41,6 +46,7 @@ class healthyFoodVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         //cell.descLbl?.numberOfLines = 10
         cell.descLbl?.textColor = UIColor.white
         cell.imageViewq?.image = image2
+          cell.descLbl.adjustsFontSizeToFitWidth = true
         
         return cell
     }

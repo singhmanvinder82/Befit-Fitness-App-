@@ -22,6 +22,11 @@ class LegsVC: UIViewController , UITableViewDataSource , UITableViewDelegate {
 
        
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if let selectedRow = legTable.indexPathForSelectedRow {
+            legTable.deselectRow(at: selectedRow, animated: true)
+        }
+    }
      func numberOfSections(in tableView: UITableView) -> Int {
        
         return 1
@@ -39,11 +44,17 @@ class LegsVC: UIViewController , UITableViewDataSource , UITableViewDelegate {
         
         
         cell.legLbl.text = self.tableData[(indexPath as NSIndexPath).row]
+        cell.legLbl.adjustsFontSizeToFitWidth = true
         cell.legImg.image = UIImage(named: self.arrImageName[(indexPath as NSIndexPath).row])
         
         
         
         return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "legsSeque", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
